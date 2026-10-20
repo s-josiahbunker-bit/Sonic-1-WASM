@@ -150,22 +150,7 @@
 			var progressElement = document.getElementById('progress');
 			var spinnerElement = document.getElementById('spinner');
 
-			var Module = preRun: [function() {
-    // 1. Create a persistent folder in the virtual file system
-    FS.mkdir('/Saves'); 
-    
-    // 2. Mount it to the browser's permanent IndexedDB storage
-    FS.mount(IDBFS, {}, '/Saves');
-
-    // 3. Sync existing data from the browser into the game before it starts
-    FS.syncfs(true, function (err) {
-        if (err) console.error("Error loading saves from IndexedDB:", err);
-        else console.log("Saves successfully loaded.");
-    });
-  }],
-  postRun: [],
-  print: (function () {
-
+			var Module = {
 				preRun: [],
 				postRun: [],
 				print: (function () {
@@ -242,3 +227,4 @@
 		<script async="async" defer="defer" type="text/javascript" src="index.js"></script>
 	</body>
 </html>
+
